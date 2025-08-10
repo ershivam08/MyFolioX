@@ -1,21 +1,28 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./Context/AuthContext.jsx";
+import { FormProvider } from "./Context/FormContext.jsx";
 import Navbar from "./Component/Navbar";
-import About from "./Pages/About";
+import Data from "./Pages/Data";
 import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Component/Contact";
 import Footer from "./Component/Footer";
-import Generator from "./Pages/Generator";
+import Login from "./Pages/Login.jsx";
 
 export default function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Generator" element={<Generator/>} />
-      </Routes>
-      <Footer/>
-    </>
+    <AuthProvider>
+      <FormProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/data" element={<Data />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+      </FormProvider>
+    </AuthProvider>
   );
 }

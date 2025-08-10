@@ -1,183 +1,186 @@
 /* Navbar.css */
+
+/* ====== Reset & Base ====== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav {
-    display: block;
-    position:sticky;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
+header.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 5%;
-    background: radial-gradient(circle at center, #1f0a3d, #0a001f, #000);
-    color: white;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+  background: radial-gradient(circle at center, #1f0a3d, #0a001f, #000);
+  color: #fff;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-.container.scrolled {
-    height: 60px;
-    background: rgba(58, 28, 113, 0.95);
-    backdrop-filter: blur(10px);
+/* Navbar Scrolled State */
+header.navbar.scrolled .navbar-container {
+  height: 65px;
+  background: rgba(58, 28, 113, 0.95);
+  backdrop-filter: blur(10px);
 }
 
-.container h2 {
-    color: #ffffff;
-    font-size: 1.8rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+/* Logo */
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
-.container span {
-    color: #ffd700;
-    font-weight: bold;
+.navbar-logo span {
+  color: #ffd700;
 }
 
-.container ul {
-    display: flex;
-    list-style: none;
+.navbar-logo:hover {
+  color: #ffd700;
 }
 
-.container li {
-    position: relative;
-    margin: 0 15px;
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.container a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    font-size: 1rem;
+.nav-links a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-.container a:hover {
-    color: #ffd700;
+.nav-links a:hover {
+  color: #ffd700;
 }
 
-.container a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ffd700;
-    transition: width 0.3s ease;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #ffd700;
+  transition: width 0.3s ease;
 }
 
-.container a:hover::after {
-    width: 100%;
+.nav-links a:hover::after {
+  width: 100%;
 }
 
-.container button {
-    background: transparent;
-    color: white;
-    border: 2px solid #ffd700;
-    padding: 8px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-left: 10px;
+/* Login Button */
+.btn-login {
+  padding: 8px 20px;
+  border: 2px solid #ffd700;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.container button:hover {
-    background: #ffd700;
-    color: #3a1c71;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-} 
+.btn-login:hover {
+  background: #ffd700;
+  color: #3a1c71;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
 
 /* Hamburger Menu */
 .hamburger {
-    display: none;
-    cursor: pointer;
-    z-index: 1001;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
 }
 
 .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: white;
-    transition: all 0.3s ease;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
 }
 
-/* Mobile Menu */
- @media (max-width: 992px) {
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .container ul {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        flex-direction: column;
-        background: rgba(58, 28, 113, 0.95);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 20px 0;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
-    }
-
-    .container ul.active {
-        left: 0;
-    }
-
-    .container li {
-        margin: 15px 0;
-    }
-
-    .container button {
-        margin: 10px auto 0;
-    }
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-/* Animation for navbar on scroll */
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ====== Mobile Styles ====== */
+@media (max-width: 992px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(58, 28, 113, 0.95);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: left 0.3s ease;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 1.1rem;
+  }
+
+  .btn-login {
+    margin-top: 10px;
+  }
+}
+
+/* ====== Animation ====== */
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fadeInDown {
-    animation: fadeInDown 0.5s ease forwards;
+  animation: fadeInDown 0.5s ease forwards;
 }

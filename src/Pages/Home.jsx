@@ -40,7 +40,7 @@ export default function Home() {
                 <p className="subtitle">
                     A modern portfolio generator where developers can <strong>design</strong>, <strong>preview</strong>, and <strong>download</strong> their personal portfolios — <em>instantly</em>, <em>beautifully</em>, and <em>without writing code</em>.
                 </p>
-                <Link to="/generate">
+                <Link to="/Data">
                     <button className="cta-button">Generate Portfolio</button>
                 </Link>
             </div>

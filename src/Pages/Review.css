@@ -1,0 +1,265 @@
+.review-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.review-container h1 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.review-subtitle {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.review-section {
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-section h2 {
+  color: #2c3e50;
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item strong {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.info-item span {
+  font-size: 16px;
+}
+
+.about-section {
+  margin-top: 20px;
+}
+
+.about-section h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  line-height: 1.6;
+}
+
+.education-item {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eaecef;
+}
+
+.education-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.education-item h3 {
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+.skills-container {
+  margin-top: 15px;
+}
+
+.skills-category {
+  margin-bottom: 20px;
+}
+
+.skills-category h3 {
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background-color: #e0f7fa;
+  color: #00838f;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.projects-container {
+  margin-top: 15px;
+}
+
+.project-item {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eaecef;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.project-item h3 {
+  color: #34495e;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.project-tech {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.project-description {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.project-link a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.project-link a:hover {
+  text-decoration: underline;
+}
+
+.project-image-preview {
+  margin-top: 10px;
+}
+
+.project-image-preview img {
+  max-width: 200px;
+  max-height: 150px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.template-selection {
+  margin: 40px 0;
+}
+
+.template-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.template-card {
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.template-card:hover {
+  border-color: #4CAF50;
+  transform: translateY(-3px);
+}
+
+.template-card.selected {
+  border-color: #4CAF50;
+  background-color: #f0fff0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.template-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.template-card p {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.back-button, .generate-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-button {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
+
+.generate-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.generate-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .template-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .back-button, .generate-button {
+    width: 100%;
+  }
+}

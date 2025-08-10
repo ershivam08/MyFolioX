@@ -1,52 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import "./Navbar.css"
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
 export default function Navbar() {
-  const [mobileMenuToggle, setMobileMenuToggle] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const toggleMobileMenu = () => {
-    setMobileMenuToggle(!mobileMenuToggle);
-  }
+  const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
+  const closeMenu = () => setMobileMenuOpen(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollX > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <nav>
-      <div className={`container ${scrolled ? 'scrolled' : ''}`}>
-        <h2 className={scrolled ? 'fadeInDown' : ''}>MyFolio<span>X</span></h2>
-        
-        <div 
-          className={`hamburger ${mobileMenuToggle ? 'active' : ''}`}
-          onClick={toggleMobileMenu}
-        >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </div>
+  useEffect(() => {
+    closeMenu();
+  }, [location.pathname]);
 
-        <ul className={mobileMenuToggle ? 'active' : ''}>
-          <li><a href="/" onClick={() => setMobileMenuToggle(false)}>Home</a></li>
-          <li><a href="/About" onClick={() => setMobileMenuToggle(false)}>About</a></li>
-          <li><a href="/Generator" onClick={() => setMobileMenuToggle(false)}>Gen Portfolio</a></li>
-          <li><a href="/Template" onClick={() => setMobileMenuToggle(false)}>Template</a></li>
-          <li><a href="/Contact" onClick={() => setMobileMenuToggle(false)}>Contact</a></li>
-          <li><a href="/Login" onClick={() => setMobileMenuToggle(false)}><button>Login</button></a></li>
-        </ul>
+  return (
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">
+          MyFolio<span>X</span>
+        </Link>
+
+        <button
+          className={`hamburger ${mobileMenuOpen ? "active" : ""}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
+
+        <nav className={`nav-links ${mobileMenuOpen ? "active" : ""}`}>
+          <Link to="/" onClick={closeMenu}>
+            Home
+          </Link>
+          <Link to="/about" onClick={closeMenu}>
+            About
+          </Link>
+          <Link to="/Data" onClick={closeMenu}>
+            Gen Portfolio
+          </Link>
+          <Link to="/templates" onClick={closeMenu}>
+            Template
+          </Link>
+          <Link to="/contact" onClick={closeMenu}>
+            Contact
+          </Link>
+          <Link to="/login" onClick={closeMenu} className="btn-login">
+            Login
+          </Link>
+        </nav>
       </div>
-    </nav>
-  )
+    </header>
+  );
 }
