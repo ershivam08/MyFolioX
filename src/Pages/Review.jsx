@@ -295,7 +295,7 @@ const Review = ({
           ← Back to Edit
         </button>
         <button onClick={handleGenerate} className="generate-button">
-          Generate Resume →
+          Generate Portfolio →
         </button>
       </div>
     </div>
